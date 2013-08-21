@@ -304,9 +304,9 @@ func printTables() {
 			"\t%s = _%s; // %s is the set of Unicode characters in line breaking class %s.\n",
 			name, name, name, name)
 		ndecl++
-		fmt.Printf("var _%s = &RangeTable {\n", name)
+		fmt.Printf("var _%s = &unicode.RangeTable {\n", name)
 		ranges := foldAdjacent(cp)
-		fmt.Print("\tR16: []Range16{\n")
+		fmt.Print("\tR16: []unicode.Range16{\n")
 		size := 16
 		count := &range16Count
 		for _, s := range ranges {
@@ -319,7 +319,7 @@ func printTables() {
 		fmt.Print("}\n\n")
 	}
 	decl.Sort()
-	fmt.Println("// These variables have type *RangeTable.")
+	fmt.Println("// These variables have type *unicode.RangeTable.")
 	fmt.Println("var (")
 	for _, d := range decl {
 		fmt.Print(d)
@@ -364,7 +364,7 @@ func printRange(lo, hi, stride uint32, size int, count *int) (int, *int) {
 			*count++
 		}
 		fmt.Print("\t},\n")
-		fmt.Print("\tR32: []Range32{\n")
+		fmt.Print("\tR32: []unicode.Range32{\n")
 		size = 32
 		count = &range32Count
 	}

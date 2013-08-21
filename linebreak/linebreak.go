@@ -8,10 +8,6 @@
 // http://www.unicode.org/reports/tr14/
 package linebreak
 
-import (
-	"unicode"
-)
-
 type breakAction int
 
 // Line breaking actions.
@@ -37,7 +33,7 @@ const (
 // Pair Table.
 //
 // See: http://www.unicode.org/reports/tr14/#Table2
-var pairTable = [][]breakType{
+var pairTable = [][]breakAction{
 	{bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bPR, bCP, bPR, bPR, bPR, bPR, bPR, bPR, bPR},
 	{bDI, bPR, bPR, bIN, bIN, bPR, bPR, bPR, bPR, bIN, bIN, bDI, bDI, bDI, bDI, bDI, bIN, bIN, bDI, bDI, bPR, bCI, bPR, bDI, bDI, bDI, bDI, bDI, bDI},
 	{bDI, bPR, bPR, bIN, bIN, bPR, bPR, bPR, bPR, bIN, bIN, bIN, bIN, bIN, bDI, bDI, bIN, bIN, bDI, bDI, bPR, bCI, bPR, bDI, bDI, bDI, bDI, bDI, bDI},
