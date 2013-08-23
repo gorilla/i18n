@@ -10,13 +10,13 @@ import (
 // Version is the Unicode edition from which the tables are derived.
 const Version = "6.2.0"
 
-type breakClass int
+type BreakClass int
 
 // Line breaking classes.
 //
 // See: http://www.unicode.org/reports/tr14/#Table1
 const (
-	ClassOP breakClass = iota // Open Punctuation
+	ClassOP BreakClass = iota // Open Punctuation
 	ClassCL                   // Close Punctuation
 	ClassCP                   // Close Parenthesis
 	ClassQU                   // Quotation
@@ -60,7 +60,7 @@ const (
 )
 
 // Class returns the line breaking class for the given rune.
-func Class(r rune) breakClass {
+func Class(r rune) BreakClass {
 	// TODO test more common first?
 	switch {
 	case unicode.Is(AI, r):
